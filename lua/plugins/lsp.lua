@@ -13,9 +13,7 @@ return {
     -- Additional lua configuration, makes nvim stuff amazing!
     {
       'folke/neodev.nvim',
-      config = function()
-        require('neodev').setup()
-      end
+      opts = {},
     },
   },
   config = function()
