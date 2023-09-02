@@ -1,6 +1,11 @@
 return {
   -- Git related plugins
-  'tpope/vim-fugitive',
+  {
+    'tpope/vim-fugitive',
+    config = function()
+      vim.keymap.set({ 'n' }, '<leader>G', "<cmd>Git<cr>", { silent = true, desc = 'fu[G]itive' })
+    end,
+  },
   'tpope/vim-rhubarb',
 
   -- Detect tabstop and shiftwidth automatically
@@ -42,6 +47,16 @@ return {
         theme = 'catppuccin',
         component_separators = '|',
         section_separators = '',
+      },
+      extensions = {
+        'fugitive',
+        'neo-tree',
+        'quickfix',
+        'toggleterm',
+        'man',
+        'nvim-dap-ui',
+        'lazy',
+        'fzf',
       },
     },
   },
