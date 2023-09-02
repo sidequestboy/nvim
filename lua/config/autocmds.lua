@@ -20,13 +20,13 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
   group = quit_group,
 })
 
--- enter insert mode by default for terminals
-local term_group = vim.api.nvim_create_augroup('Term', { clear = true })
+-- enter insert mode by default for terminals and gitcommit
+local insert_group = vim.api.nvim_create_augroup('AutoInsert', { clear = true })
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
   callback = function()
-    if vim.bo.filetype == 'toggleterm' and vim.api.nvim_get_mode().mode == 'nt' then
+    if vim.bo.filetype == 'toggleterm' and vim.api.nvim_get_mode().mode == 'nt' or vim.bo.filetype == 'gitcommit' then
       vim.cmd('startinsert')
     end
   end,
-  group = term_group,
+  group = insert_group,
 })
