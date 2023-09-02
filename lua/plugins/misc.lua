@@ -3,7 +3,7 @@ return {
   {
     'tpope/vim-fugitive',
     config = function()
-      vim.keymap.set({ 'n' }, '<leader>G', "<cmd>Git<cr>", { silent = true, desc = 'fu[G]itive' })
+      vim.keymap.set({ 'n' }, '<leader>G', "<cmd>Git | only<cr>", { silent = true, desc = 'fu[G]itive' })
     end,
   },
   'tpope/vim-rhubarb',
