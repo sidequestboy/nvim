@@ -7,7 +7,6 @@ return {
                 group = augroup,
                 pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
                 callback = function()
-                    vim.cmd("undojoin")
                     vim.cmd("Neoformat prettierd")
                 end
             })

@@ -9,12 +9,24 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-local help_group = vim.api.nvim_create_augroup('Help', { clear = true })
-vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter'}, {
+-- quit with 'q' in help pages and quickfix list
+local quit_group = vim.api.nvim_create_augroup('EasyQuit', { clear = true })
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
   callback = function()
-    if vim.bo.filetype == 'man' then
-      vim.keymap.set({ 'n', 'v' }, 'q', function() vim.api.nvim_buf_delete(0, {}) end)
+    if vim.bo.filetype == 'help' or vim.bo.filetype == 'quickfix' then
+      vim.keymap.set({ 'n', 'v' }, 'q', function() vim.api.nvim_buf_delete(0, {}) end, { buffer = true })
     end
   end,
-  group = help_group,
+  group = quit_group,
+})
+
+-- enter insert mode by default for terminals
+local term_group = vim.api.nvim_create_augroup('Term', { clear = true })
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+  callback = function()
+    if vim.bo.filetype == 'toggleterm' and vim.api.nvim_get_mode().mode == 'nt' then
+      vim.cmd('startinsert')
+    end
+  end,
+  group = term_group,
 })
