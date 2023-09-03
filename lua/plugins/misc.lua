@@ -90,5 +90,6 @@ return {
       vim.keymap.set('n', '<leader>o', function() require('maximize').toggle() end, { desc = 'make [O]nly window' })
     end,
   },
+  { 'echasnovski/mini.ai',  version = '*' },
 
 }
