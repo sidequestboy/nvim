@@ -14,4 +14,4 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- buffer maps
 vim.keymap.set({ 'n' }, '<tab>', function() vim.cmd('bn') end, { desc = 'next buffer' })
 vim.keymap.set({ 'n' }, '<S-tab>', function() vim.cmd('bp') end, { desc = 'previous buffer' })
-vim.keymap.set({ 'n' }, '<leader>x', function() vim.cmd('bd') end, { desc = '[X] delete buffer' })
+vim.keymap.set({ 'n' }, '<leader>x', function() vim.cmd('bd!') end, { desc = '[X] delete buffer' })
