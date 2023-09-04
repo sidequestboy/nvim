@@ -34,8 +34,10 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
 local session_group = vim.api.nvim_create_augroup('Session', { clear = true })
 vim.api.nvim_create_autocmd({ 'VimEnter' }, {
   callback = function()
-    require("persistence").load()
-    vim.cmd('bufdo e')
+    if (vim.fn.argc() == 0) then
+      require("persistence").load()
+      vim.cmd('bufdo e')
+    end
   end,
   nested = true,
   group = session_group
