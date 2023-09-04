@@ -2,6 +2,7 @@ return {
   'akinsho/bufferline.nvim',
   version = "*",
   dependencies = 'nvim-tree/nvim-web-devicons',
+  after = "catppuccin",
   config = function()
     local opts = {
       options = {
@@ -11,7 +12,8 @@ return {
             require('bufferline.groups').builtin.pinned:with({ icon = "📌" })
           }
         }
-      }
+      },
+      highlights = require("catppuccin.groups.integrations.bufferline").get()
     }
     require('bufferline').setup(opts)
 
