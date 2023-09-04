@@ -34,6 +34,7 @@ return {
 
     context_commentstring = {
       enable = true,
+      enable_autocmd = false,
     },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
