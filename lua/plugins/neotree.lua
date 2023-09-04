@@ -16,7 +16,7 @@ return {
   config = function(_, opts)
     require('neo-tree').setup(opts)
     vim.keymap.set('n', '<leader>dS',
-      function() vim.cmd("Neotree source=document_symbols reveal=true position=left toggle=true") end,
+      function() vim.cmd("Neotree source=document_symbols reveal=true position=right toggle=true") end,
       { desc = '[n]eotree toggle [d]ocument [S]ymbols' })
     vim.keymap.set('n', '<leader>f',
       function() vim.cmd("Neotree source=filesystem reveal=true position=left toggle=true") end,
