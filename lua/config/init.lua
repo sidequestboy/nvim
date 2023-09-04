@@ -1,8 +1,17 @@
 vim.diagnostic.config({
   virtual_text = {
-    source = true,
+    source = "if_many",
     prefix = '●',
+    severity = {
+      min = vim.diagnostic.severity.INFO
+    },
   },
+  -- underline = {
+  --   severity = {
+  --     min = vim.diagnostic.severity.INFO
+  --   },
+  -- },
+  severity_sort = true,
 })
 
 vim.cmd([[
@@ -11,4 +20,3 @@ vim.cmd([[
   sign define DiagnosticSignInfo text=󰋽 texthl=DiagnosticSignInfo linehl= numhl=
   sign define DiagnosticSignHint text=󰌶 texthl=DiagnosticSignHint linehl= numhl=
 ]])
-
