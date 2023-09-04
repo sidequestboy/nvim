@@ -15,15 +15,15 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+require('config')
 require('config.options')
 require('config.keymaps')
+require('config.autocmds')
 require('lazy').setup('plugins', {
   install = {
     missing = true,
     colorscheme = { "catppuccin" },
   },
 })
-require('config')
-require('config.autocmds')
 
 -- vim: ts=2 sts=2 sw=2 et
