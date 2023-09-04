@@ -4,6 +4,7 @@ return {
   priority = 1000,
   opts = {
     integrations = {
+      gitsigns = true,
       mason = true,
       mini = true,
       native_lsp = {
@@ -24,7 +25,7 @@ return {
   },
   config = function(_, opts)
     require('catppuccin').setup(opts)
-    vim.cmd.colorscheme 'catppuccin'
+    vim.cmd.colorscheme 'catppuccin-mocha'
     vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { italic = true, fg = "#f9e2af" })
     vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { italic = true, fg = "#f38ba8" })
     vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { italic = true, fg = "#94e2d5" })
