@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 local quit_group = vim.api.nvim_create_augroup('EasyQuit', { clear = true })
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
   callback = function()
-    if vim.bo.filetype == 'help' or vim.bo.filetype == 'quickfix' or vim.bo.filetype == 'fugitive' then
+    if vim.bo.filetype == 'help' or vim.bo.filetype == 'qf' or vim.bo.filetype == 'fugitive' then
       vim.keymap.set({ 'n', 'v' }, 'q', function() vim.api.nvim_buf_delete(0, {}) end, { buffer = true })
     end
   end,
