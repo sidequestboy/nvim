@@ -9,7 +9,7 @@ return {
 
     local opts = {
       options = {
-        sort_by = "insert_after_current",
+        -- sort_by = "insert_after_current",
         separator_style = "slant",
         diagnostics = "nvim_lsp",
         diagnostics_indicator = function(count, level, diagnostics_dict, context)
