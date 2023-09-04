@@ -57,6 +57,18 @@ return {
       -- rust_analyzer = {},
       tsserver = {},
       -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+      emmet_ls = {
+        filetypes = { "css", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug",
+          "typescriptreact", "vue" },
+        init_options = {
+          html = {
+            options = {
+              -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+              ["bem.enabled"] = true,
+            },
+          },
+        }
+      },
 
       lua_ls = {
         Lua = {
