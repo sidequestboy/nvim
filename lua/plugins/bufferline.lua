@@ -6,6 +6,7 @@ return {
   config = function()
     local error_sign = vim.fn.sign_getdefined("DiagnosticSignError")[1].text or "󰅚"
     local warning_sign = vim.fn.sign_getdefined("DiagnosticSignWarn")[1].text or "󰀪"
+    local palette = require("catppuccin.palettes").get_palette("mocha")
 
     local opts = {
       options = {
@@ -28,7 +29,23 @@ return {
         }
       },
       highlights = require("catppuccin.groups.integrations.bufferline").get({
-        styles = { "italic", "bold" },
+        styles = { "bold" },
+        custom = {
+          all = {
+            info = { fg = palette.overlay0, },
+            info_visible = { fg = palette.overlay0, },
+            info_selected = { fg = palette.text, },
+            hint = { fg = palette.overlay0, },
+            hint_visible = { fg = palette.overlay0, },
+            hint_selected = { fg = palette.text, },
+            warning = { fg = palette.yellow, undercurl = true, },
+            warning_visible = { fg = palette.yellow, undercurl = true, },
+            warning_selected = { fg = palette.yellow, undercurl = true, },
+            error = { fg = palette.red, undercurl = true, },
+            error_visible = { fg = palette.red, undercurl = true, },
+            error_selected = { fg = palette.red, undercurl = true, },
+          },
+        },
       })
     }
     require('bufferline').setup(opts)
