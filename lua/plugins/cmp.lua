@@ -17,7 +17,7 @@ return {
     require('luasnip.loaders.from_vscode').lazy_load()
     luasnip.config.setup {}
 
-    cmp.setup {
+    local cmp_opts = {
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
@@ -31,7 +31,7 @@ return {
         ['<C-Space>'] = cmp.mapping.complete {},
         ['<CR>'] = cmp.mapping.confirm {
           behavior = cmp.ConfirmBehavior.Replace,
-          select = true,
+          select = false,
         },
         ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
@@ -56,6 +56,8 @@ return {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
       },
-    }
+    };
+
+    cmp.setup(cmp_opts)
   end,
 }
