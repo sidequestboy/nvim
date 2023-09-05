@@ -10,8 +10,3 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
-
--- buffer maps
-vim.keymap.set({ 'n' }, '<tab>', function() vim.cmd('bn') end, { desc = 'next buffer' })
-vim.keymap.set({ 'n' }, '<S-tab>', function() vim.cmd('bp') end, { desc = 'previous buffer' })
-vim.keymap.set({ 'n' }, '<leader>x', function() vim.cmd('bd!') end, { desc = '[X] delete buffer' })

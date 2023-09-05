@@ -9,7 +9,7 @@ return {
 
     local opts = {
       options = {
-        -- sort_by = "insert_after_current",
+        sort_by = "insert_after_current",
         separator_style = "slant",
         diagnostics = "nvim_lsp",
         diagnostics_indicator = function(count, level, diagnostics_dict, context)
@@ -34,5 +34,9 @@ return {
     require('bufferline').setup(opts)
 
     vim.keymap.set({ 'n' }, '<leader>p', function() vim.cmd('BufferLineTogglePin') end, { desc = '[P]in buffer' })
+
+    vim.keymap.set({ 'n' }, '<tab>', function() vim.cmd('BufferLineCycleNext') end, { desc = 'next buffer' })
+    vim.keymap.set({ 'n' }, '<S-tab>', function() vim.cmd('BufferLineCyclePrev') end, { desc = 'previous buffer' })
+    vim.keymap.set({ 'n' }, '<leader>x', function() vim.cmd('bd!') end, { desc = '[X] delete buffer' })
   end,
 }
