@@ -4,6 +4,7 @@ return {
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
     'JoosepAlviste/nvim-ts-context-commentstring',
+    'windwp/nvim-ts-autotag',
   },
   build = ':TSUpdate',
   opts = {
@@ -30,6 +31,10 @@ return {
       'vim',
       'vimdoc',
       'vue'
+    },
+
+    autotag = {
+      enable = true,
     },
 
     context_commentstring = {
