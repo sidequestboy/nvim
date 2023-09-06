@@ -6,6 +6,7 @@ return {
     'JoosepAlviste/nvim-ts-context-commentstring',
     'windwp/nvim-ts-autotag',
   },
+  priority = 998,
   build = ':TSUpdate',
   opts = {
     -- Add languages to be installed here that you want installed for treesitter

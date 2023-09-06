@@ -41,6 +41,7 @@ return {
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
+    priority = 999,
     -- See `:help lualine.txt`
     opts = {
       options = {
