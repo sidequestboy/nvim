@@ -43,20 +43,10 @@ vim.api.nvim_create_autocmd({ 'VimEnter' }, {
 })
 
 local filetype_group = vim.api.nvim_create_augroup('Filetype', { clear = true })
-
-vim.api.nvim_create_autocmd({ 'VimEnter' }, {
+vim.api.nvim_create_autocmd({ 'BufRead' }, {
   callback = function()
-    local fp = io.popen('rg \"react\" package.json', 'r')
-    if (fp ~= nil and fp:read("*l") ~= nil) then
-      vim.api.nvim_create_autocmd({ 'BufRead' }, {
-        callback = function()
-          vim.cmd('set filetype=javascriptreact')
-        end,
-        pattern = "*src/*.js",
-        group = filetype_group,
-      })
-      vim.cmd('silent bufdo e')
-    end
+    vim.cmd('set filetype=javascriptreact')
   end,
-  nested = true,
+  pattern = "*src/*.js",
+  group = filetype_group,
 })
