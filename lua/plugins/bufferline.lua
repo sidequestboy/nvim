@@ -3,7 +3,7 @@ return {
   version = "*",
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   after = "catppuccin",
-  priority = 999,
+  priority = 998,
   config = function()
     local error_sign = vim.fn.sign_getdefined("DiagnosticSignError")[1].text or "󰅚"
     local warning_sign = vim.fn.sign_getdefined("DiagnosticSignWarn")[1].text or "󰀪"

@@ -2,11 +2,14 @@ return {
   "akinsho/toggleterm.nvim",
   version = "*",
   opts = { size = 20, shade_terminals = true, shading_factor = -15 },
-  config = function(_, opts)
-    require("toggleterm").setup(opts)
-    vim.keymap.set({ "n", "t" }, "<C-t>", function()
-      return "<cmd>" .. vim.v.count .. "ToggleTerm<cr>"
-    end, { silent = true, expr = true })
-  end,
+  keys = {
+    {
+      "<C-t>",
+      function() vim.cmd(vim.v.count .. "ToggleTerm") end,
+      mode = { "n", "t" },
+      desc = "ToggleTerm",
+      silent = true,
+    }
+  }
 }
 -- vim.cmd(vim.v.count .. "ToggleTerm")
