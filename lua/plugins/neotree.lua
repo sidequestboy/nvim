@@ -15,7 +15,6 @@ return {
   opts = {
     enable_diagnostics = true,
     sources = { "filesystem", "document_symbols" },
-    close_if_last_window = true,
     default_component_configs = {
       git_status = {
         symbols = {
