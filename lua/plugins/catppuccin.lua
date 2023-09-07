@@ -17,6 +17,7 @@ return {
           information = { "undercurl" },
         },
       },
+      neotree = true,
       noice = true,
       notify = true,
       semantic_tokens = true,

@@ -9,10 +9,30 @@ return {
     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
     "MunifTanjim/nui.nvim",
   },
+  after = {
+    "catppuccin"
+  },
   opts = {
     enable_diagnostics = true,
     sources = { "filesystem", "document_symbols" },
+    close_if_last_window = true,
+    default_component_configs = {
+      git_status = {
+        symbols = {
+          modified = "",
+        },
+      },
+      modified = {
+        symbol = "+",
+      },
+    },
   },
+  config = function(_, opts)
+    require('neo-tree').setup(opts)
+    vim.api.nvim_set_hl(0, "NeoTreeGitModified", { fg = "#fab388", italic = true })
+    vim.api.nvim_set_hl(0, "NeoTreeModified", { link = "NeoTreeGitModified" })
+  end,
+
   keys = {
     {
       '<leader>dS',
