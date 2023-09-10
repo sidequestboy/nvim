@@ -66,10 +66,11 @@ vim.api.nvim_create_autocmd({ 'TextChangedI' }, {
     -- only run when inserting non-whitespace
     if (is_stale ~= true and cur_char ~= "" and cur_char:match("%s") == nil) then
       is_stale = true
-      local line_length = #vim.fn.getline(".")
+      -- local line_length = #vim.fn.getline(".")
       local cursor_pos = vim.api.nvim_win_get_cursor(0)
+      local line_length = #vim.api.nvim_buf_get_lines(0, cursor_pos[1] - 1, cursor_pos[1], true)
       vim.cmd.execute("\"normal ==\"")
-      local new_line_length = #vim.fn.getline(".")
+      local new_line_length = #vim.api.nvim_buf_get_lines(0, cursor_pos[1] - 1, cursor_pos[1], true)
       vim.api.nvim_win_set_cursor(0, { cursor_pos[1], cursor_pos[2] + new_line_length - line_length })
     end
   end,
