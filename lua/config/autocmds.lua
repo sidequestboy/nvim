@@ -51,29 +51,28 @@ vim.api.nvim_create_autocmd({ 'BufRead' }, {
   group = filetype_group,
 })
 
-local is_stale = true
-local cur_char = ""
-
-local indent_group = vim.api.nvim_create_augroup('Indent', { clear = true })
-vim.api.nvim_create_autocmd({ 'InsertCharPre' }, {
-  callback = function()
-    is_stale = false
-    cur_char = vim.v.char
-  end,
-})
-vim.api.nvim_create_autocmd({ 'TextChangedI' }, {
-  callback = function()
-    -- only run when inserting non-whitespace
-    if (is_stale ~= true and cur_char ~= "" and cur_char:match("%s") == nil) then
-      is_stale = true
-      -- local line_length = #vim.fn.getline(".")
-      local cursor_pos = vim.api.nvim_win_get_cursor(0)
-      local line_length = #vim.api.nvim_buf_get_lines(0, cursor_pos[1] - 1, cursor_pos[1], true)
-      vim.cmd.execute("\"normal ==\"")
-      local new_line_length = #vim.api.nvim_buf_get_lines(0, cursor_pos[1] - 1, cursor_pos[1], true)
-      vim.api.nvim_win_set_cursor(0, { cursor_pos[1], cursor_pos[2] + new_line_length - line_length })
-    end
-  end,
-  pattern = "*",
-  group = indent_group,
-})
+-- local is_stale = true
+-- local cur_char = ""
+--
+-- local indent_group = vim.api.nvim_create_augroup('Indent', { clear = true })
+-- vim.api.nvim_create_autocmd({ 'InsertCharPre' }, {
+--   callback = function()
+--     is_stale = false
+--     cur_char = vim.v.char
+--   end,
+-- })
+-- vim.api.nvim_create_autocmd({ 'TextChangedI' }, {
+--   callback = function()
+--     -- only run when inserting non-whitespace
+--     if (is_stale ~= true and cur_char ~= "" and cur_char:match("%s") == nil) then
+--       is_stale = true
+--       local line_length = #vim.fn.getline(".")
+--       local cursor_pos = vim.api.nvim_win_get_cursor(0)
+--       vim.cmd.execute("\"normal ==\"")
+--       local new_line_length = #vim.fn.getline(".")
+--       vim.api.nvim_win_set_cursor(0, { cursor_pos[1], cursor_pos[2] + new_line_length - line_length })
+--     end
+--   end,
+--   pattern = "*",
+--   group = indent_group,
+-- })
