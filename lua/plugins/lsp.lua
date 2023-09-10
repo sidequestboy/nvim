@@ -57,6 +57,7 @@ return {
       -- pyright = {},
       -- rust_analyzer = {},
       tsserver = {},
+      eslint = {},
       -- html = { filetypes = { 'html', 'twig', 'hbs'} },
       emmet_ls = {
         filetypes = { "css", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug",
