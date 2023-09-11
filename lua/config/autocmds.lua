@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd({ 'BufRead' }, {
 local auto_normal_group = vim.api.nvim_create_augroup("NormalGroup", { clear = true })
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   callback = function()
-    if vim.bo.filetype ~= 'toggleterm' and vim.api.nvim_get_mode().mode ~= 'nt' or vim.bo.filetype ~= 'gitcommit' then
+    if vim.bo.filetype == 'help' or vim.bo.filetype == 'fugitive' then
       vim.cmd("stopinsert")
     end
   end,
