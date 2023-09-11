@@ -41,6 +41,13 @@ return {
       desc = '[n]eotree toggle [d]ocument [S]ymbols',
     },
     {
+      '<C-f>',
+      function()
+        vim.cmd("Neotree source=filesystem reveal=true position=left toggle=true")
+      end,
+      desc = 'Neotree toggle filesystem',
+    },
+    {
       '<leader>f',
       function()
         vim.cmd("Neotree source=filesystem reveal=true position=left toggle=true")
