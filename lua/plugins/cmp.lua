@@ -1,3 +1,45 @@
+-- this is a failed experiment I think :(
+local setup_autocmds = function()
+  local cmp = require('cmp')
+  local is_stale = true
+  local cur_char = ""
+
+  local indent_group = vim.api.nvim_create_augroup('Indent', { clear = true })
+  vim.api.nvim_create_autocmd({ 'InsertCharPre' }, {
+    callback = function()
+      is_stale = false
+      cur_char = vim.v.char
+    end,
+  })
+  local cmp_was_visible
+  local line_length
+  local row, col
+  vim.api.nvim_create_autocmd({ 'TextChangedI' }, {
+    callback = function()
+      -- only run when inserting non-whitespace
+      if (is_stale ~= true and cur_char ~= "" and cur_char:match("%s") == nil) then
+        is_stale = true
+        -- cmp_was_visible = cmp.visible()
+        line_length = #vim.fn.getline(".")
+        row, col = unpack(vim.api.nvim_win_get_cursor(0))
+
+        -- if (cmp_was_visible) then
+        --   cmp.abort() -- escape completion menu
+        -- end
+
+        vim.fn.execute("normal ==") -- autoindent line
+
+        -- if (cmp_was_visible) then
+        --   cmp.complete() -- open completion menu
+        -- end
+
+        vim.api.nvim_win_set_cursor(0, { row, col + #vim.fn.getline(".") - line_length })
+      end
+    end,
+    pattern = "*",
+    group = indent_group,
+  })
+end
 return {
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
@@ -25,7 +67,13 @@ return {
         end,
       },
       mapping = cmp.mapping.preset.insert {
-        ['<C-n>'] = cmp.mapping.select_next_item(),
+        ['<C-n>'] = cmp.mapping(function()
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            cmp.complete()
+          end
+        end, { 'i', 's' }),
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -59,6 +107,7 @@ return {
       },
     };
 
+    -- setup_autocmds()
     cmp.setup(cmp_opts)
   end,
 }
