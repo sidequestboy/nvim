@@ -45,7 +45,7 @@ vim.o.shiftwidth = 2
 vim.o.tabstop = 2
 
 -- trigger indent after we write "case", and when we backspace.
-vim.opt.indentkeys:append { "<e>", "<BS>" }
+vim.opt.indentkeys:append { "<e>", "<BS>", "(", ")" }
 vim.o.smartindent = true
 
 -- so <C-a> doesn't treat "-n" as negative
