@@ -19,7 +19,11 @@ return {
   },
   config = function()
     --  This function gets run when an LSP connects to a particular buffer.
-    local on_attach = function(_, bufnr)
+    local on_attach = function(client, bufnr)
+      if client.name == "tsserver" and (vim.bo[bufnr].filetype == "javascript" or vim.bo[bufnr].filetype == "javascriptreact") then
+        local ns = vim.lsp.diagnostic.get_namespace(client.id)
+        vim.diagnostic.disable(nil, ns)
+      end
       local nmap = function(keys, func, desc)
         if desc then
           desc = 'LSP: ' .. desc
