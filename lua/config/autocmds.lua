@@ -20,17 +20,6 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
   group = quit_group,
 })
 
--- enter insert mode by default for terminals and gitcommit
-local insert_group = vim.api.nvim_create_augroup('AutoInsert', { clear = true })
-vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
-  callback = function()
-    if vim.bo.filetype == 'toggleterm' and vim.api.nvim_get_mode().mode == 'nt' or vim.bo.filetype == 'gitcommit' then
-      vim.cmd('startinsert')
-    end
-  end,
-  group = insert_group,
-})
-
 local session_group = vim.api.nvim_create_augroup('Session', { clear = true })
 vim.api.nvim_create_autocmd({ 'VimEnter' }, {
   callback = function()
@@ -49,4 +38,25 @@ vim.api.nvim_create_autocmd({ 'BufRead' }, {
   end,
   pattern = "*src/*.js",
   group = filetype_group,
+})
+
+local auto_normal_group = vim.api.nvim_create_augroup("NormalGroup", { clear = true })
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  callback = function()
+    if vim.bo.filetype ~= 'toggleterm' and vim.api.nvim_get_mode().mode ~= 'nt' or vim.bo.filetype ~= 'gitcommit' then
+      vim.cmd("stopinsert")
+    end
+  end,
+  group = auto_normal_group,
+})
+
+-- enter insert mode by default for terminals and gitcommit
+local insert_group = vim.api.nvim_create_augroup('AutoInsert', { clear = true })
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+  callback = function()
+    if vim.bo.filetype == 'toggleterm' and vim.api.nvim_get_mode().mode == 'nt' or vim.bo.filetype == 'gitcommit' then
+      vim.cmd('startinsert')
+    end
+  end,
+  group = insert_group,
 })
