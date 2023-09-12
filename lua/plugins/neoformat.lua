@@ -10,5 +10,13 @@ return {
           vim.cmd("Neoformat prettierd")
         end
       })
+    vim.api.nvim_create_autocmd({ "BufWritePre" },
+      {
+        group = augroup,
+        pattern = { "*.lua" },
+        callback = function()
+          vim.cmd("Neoformat stylua")
+        end
+      })
   end,
 }
