@@ -62,8 +62,5 @@ return {
     vim.keymap.set({ 'n' }, '<S-tab>', function()
       vim.cmd 'BufferLineCyclePrev'
     end, { desc = 'previous buffer' })
-    vim.keymap.set({ 'n' }, '<leader>x', function()
-      vim.cmd 'bd!'
-    end, { desc = '[X] delete buffer' })
   end,
 }
