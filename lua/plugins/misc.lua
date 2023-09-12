@@ -54,11 +54,8 @@ return {
         section_separators = '',
       },
       sections = {
-        lualine_a = {
-          {
-            'diagnostics',
-            sources = { 'nvim_diagnostic' }
-          }
+        lualine_b = {
+          'branch', 'diff', { 'diagnostics', sources = { 'nvim_diagnostic' } }
         },
       },
       extensions = {
