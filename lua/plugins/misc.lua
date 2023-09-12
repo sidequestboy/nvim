@@ -42,6 +42,8 @@ return {
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
+    dir = "~/my/code/nvim-plugins/lualine.nvim",
+    dev = true,
     priority = 999,
     -- See `:help lualine.txt`
     opts = {
