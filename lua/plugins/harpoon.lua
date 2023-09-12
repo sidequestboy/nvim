@@ -1,5 +1,7 @@
 return {
-  "ThePrimeagen/harpoon",
+  'ThePrimeagen/harpoon',
+  dev = true,
+  dir = '~/my/code/nvim-plugins/harpoon',
   opts = {
     save_on_toggle = true,
     tabline = true,
