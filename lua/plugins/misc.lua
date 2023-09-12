@@ -3,7 +3,7 @@ return {
   {
     'tpope/vim-fugitive',
     config = function()
-      vim.keymap.set({ 'n' }, '<leader>G', "<cmd>Git | only<cr>", { silent = true, desc = 'fu[G]itive' })
+      vim.keymap.set({ 'n' }, '<leader>G', '<cmd>Git | only<cr>', { silent = true, desc = 'fu[G]itive' })
     end,
   },
   'tpope/vim-rhubarb',
@@ -22,19 +22,17 @@ return {
     opts = {
       -- See `:help gitsigns.txt`
       signs = {
-        add          = { text = '+' },
-        change       = { text = '~' },
-        delete       = { text = '_' },
-        topdelete    = { text = '‾' },
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
         changedelete = { text = '~' },
-        untracked    = { text = '│' },
+        untracked = { text = '│' },
       },
       on_attach = function(bufnr)
-        vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk,
-          { buffer = bufnr, desc = '[G]o to [P]revious Hunk' })
+        vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk, { buffer = bufnr, desc = '[G]o to [P]revious Hunk' })
         vim.keymap.set('n', '<leader>gn', require('gitsigns').next_hunk, { buffer = bufnr, desc = '[G]o to [N]ext Hunk' })
-        vim.keymap.set('n', '<leader>gph', require('gitsigns').preview_hunk,
-          { buffer = bufnr, desc = '[P]review [H]unk' })
+        vim.keymap.set('n', '<leader>gph', require('gitsigns').preview_hunk, { buffer = bufnr, desc = '[P]review [H]unk' })
       end,
     },
   },
@@ -42,7 +40,7 @@ return {
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
-    dir = "~/my/code/nvim-plugins/lualine.nvim",
+    dir = '~/my/code/nvim-plugins/lualine.nvim',
     dev = true,
     priority = 999,
     -- See `:help lualine.txt`
@@ -55,7 +53,9 @@ return {
       },
       sections = {
         lualine_b = {
-          'branch', 'diff', { 'diagnostics', sources = { 'nvim_diagnostic' } }
+          'branch',
+          'diff',
+          { 'diagnostics', sources = { 'nvim_diagnostic' } },
         },
       },
       extensions = {
@@ -97,9 +97,10 @@ return {
     opts = { default_keymaps = false },
     config = function(_, opts)
       require('maximize').setup(opts)
-      vim.keymap.set('n', '<leader>o', function() require('maximize').toggle() end, { desc = 'make [O]nly window' })
+      vim.keymap.set('n', '<leader>o', function()
+        require('maximize').toggle()
+      end, { desc = 'make [O]nly window' })
     end,
   },
-  { 'echasnovski/mini.ai',  version = '*' },
-
+  { 'echasnovski/mini.ai', version = '*' },
 }

@@ -1,5 +1,5 @@
 return {
-  "NvChad/nvim-colorizer.lua",
+  'NvChad/nvim-colorizer.lua',
   opts = {
     css = true,
   },

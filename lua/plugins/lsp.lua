@@ -1,7 +1,7 @@
 return {
   -- LSP Configuration & Plugins
   'neovim/nvim-lspconfig',
-  event = { "BufReadPre", "BufNewFile" },
+  event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
     -- Automatically install LSPs to stdpath for neovim
     { 'williamboman/mason.nvim', config = true },
@@ -9,7 +9,7 @@ return {
 
     -- Useful status updates for LSP
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-    { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
+    { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
 
     -- Additional lua configuration, makes nvim stuff amazing!
     {
@@ -20,7 +20,7 @@ return {
   config = function()
     --  This function gets run when an LSP connects to a particular buffer.
     local on_attach = function(client, bufnr)
-      if client.name == "tsserver" and (vim.bo[bufnr].filetype == "javascript" or vim.bo[bufnr].filetype == "javascriptreact") then
+      if client.name == 'tsserver' and (vim.bo[bufnr].filetype == 'javascript' or vim.bo[bufnr].filetype == 'javascriptreact') then
         local ns = vim.lsp.diagnostic.get_namespace(client.id)
         vim.diagnostic.disable(bufnr, ns)
       end
@@ -64,16 +64,15 @@ return {
       eslint = {},
       -- html = { filetypes = { 'html', 'twig', 'hbs'} },
       emmet_ls = {
-        filetypes = { "css", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug",
-          "typescriptreact", "vue" },
+        filetypes = { 'css', 'html', 'javascript', 'javascriptreact', 'less', 'sass', 'scss', 'svelte', 'pug', 'typescriptreact', 'vue' },
         init_options = {
           html = {
             options = {
               -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-              ["bem.enabled"] = true,
+              ['bem.enabled'] = true,
             },
           },
-        }
+        },
       },
 
       lua_ls = {
@@ -102,7 +101,7 @@ return {
           settings = servers[server_name],
           filetypes = (servers[server_name] or {}).filetypes,
         }
-      end
+      end,
     }
 
     -- Auto-formatting:

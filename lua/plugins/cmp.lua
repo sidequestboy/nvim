@@ -63,7 +63,7 @@ return {
         { name = 'luasnip' },
         { name = 'nvim_lsp' },
       },
-    };
+    }
 
     cmp.setup(cmp_opts)
   end,
