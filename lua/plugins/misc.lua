@@ -53,6 +53,14 @@ return {
         component_separators = '|',
         section_separators = '',
       },
+      sections = {
+        lualine_a = {
+          {
+            'diagnostics',
+            sources = { 'nvim_diagnostic' }
+          }
+        },
+      },
       extensions = {
         'fugitive',
         'neo-tree',
