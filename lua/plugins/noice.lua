@@ -10,7 +10,10 @@ return {
         ['cmp.entry.get_documentation'] = true,
       },
     },
-    -- you can enable a preset for easier configuration
+    messages = {
+      enabled = true,
+      view = 'mini',
+    },
     presets = {
       -- bottom_search = true,         -- use a classic bottom cmdline for search
       command_palette = true, -- position the cmdline and popupmenu together
