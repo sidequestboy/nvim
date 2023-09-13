@@ -37,6 +37,11 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- one line at a time
+vim.opt.mousescroll = 'ver:1,hor:1'
+-- treat wrapped lines as one line scrolled
+-- vim.opt.smoothscroll = true
+
 -- vim.o.colorcolumn = "80"
 
 -- Spaces instead of tabs by default
