@@ -9,7 +9,7 @@ return {
   config = function(_, opts)
     require('harpoon').setup(opts)
     vim.keymap.set({ 'n' }, '<leader>m', function()
-      require('harpoon.mark').add_file()
+      require('harpoon.mark').toggle_file()
     end, { desc = 'Harpoon [m]ark' })
     vim.keymap.set({ 'n', 'i', 'c' }, '<C-g>', function()
       vim.cmd 'Telescope harpoon marks'
