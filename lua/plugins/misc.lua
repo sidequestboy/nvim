@@ -1,4 +1,15 @@
 return {
+
+  {
+    'glepnir/nerdicons.nvim',
+    cmd = 'NerdIcons',
+    config = function()
+      require('nerdicons').setup {}
+      vim.keymap.set({ 'n' }, '<leader>i', function()
+        vim.cmd 'NerdIcons'
+      end, { desc = 'Nerd [i]cons' })
+    end,
+  },
   -- Git related plugins
   {
     'tpope/vim-fugitive',
