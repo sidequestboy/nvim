@@ -1,4 +1,8 @@
 return {
+
+  {
+    'ixru/nvim-markdown',
+  },
   {
     'iamcco/markdown-preview.nvim',
     ft = 'markdown',
