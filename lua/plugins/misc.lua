@@ -65,6 +65,7 @@ return {
     dir = '~/my/code/nvim-plugins/lualine.nvim',
     dev = true,
     priority = 999,
+    dependencies = { 'folke/noice.nvim' },
     -- See `:help lualine.txt`
     opts = {
       options = {
@@ -72,13 +73,6 @@ return {
         theme = 'catppuccin',
         component_separators = '|',
         section_separators = '',
-      },
-      sections = {
-        lualine_b = {
-          'branch',
-          'diff',
-          { 'diagnostics', sources = { 'nvim_diagnostic' } },
-        },
       },
       extensions = {
         'fugitive',
@@ -91,6 +85,27 @@ return {
         'fzf',
       },
     },
+    config = function(_, opts)
+      vim.opt.showmode = false
+      opts.sections = {
+        lualine_b = {
+          'branch',
+          'diff',
+          { 'diagnostics', sources = { 'nvim_diagnostic' } },
+          {
+            require('noice').api.status.command.get,
+            cond = require('noice').api.status.command.has,
+            color = { fg = '#ff9e64' },
+          },
+          {
+            require('noice').api.status.mode.get,
+            cond = require('noice').api.status.mode.has,
+            color = { fg = '#ff9e64' },
+          },
+        },
+      }
+      require('lualine').setup(opts)
+    end,
   },
 
   {
