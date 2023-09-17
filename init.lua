@@ -1,5 +1,5 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = ','
+vim.g.maplocalleader = ','
 
 -- Install package manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -15,17 +15,17 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('config')
-require('config.options')
-require('config.keymaps')
-require('config.autocmds')
+require 'config'
+require 'config.options'
+require 'config.keymaps'
+require 'config.autocmds'
 require('lazy').setup('plugins', {
   defaults = {
     lazy = false,
     version = false,
   },
   install = {
-    colorscheme = { "catppuccin" },
+    colorscheme = { 'catppuccin' },
   },
   dev = { path = '~/my/code/nvim-plugins' },
   checker = { enabled = true },
@@ -33,14 +33,14 @@ require('lazy').setup('plugins', {
     rtp = {
       -- disable some rtp plugins
       disabled_plugins = {
-        "gzip",
+        'gzip',
         -- "matchit",
         -- "matchparen",
-        "netrwPlugin",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
+        'netrwPlugin',
+        'tarPlugin',
+        'tohtml',
+        'tutor',
+        'zipPlugin',
       },
     },
   },
