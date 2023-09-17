@@ -11,6 +11,7 @@ return {
 
     -- Adds a number of user-friendly snippets
     'rafamadriz/friendly-snippets',
+    'FelipeLema/cmp-async-path',
   },
   config = function()
     local cmp = require 'cmp'
@@ -19,6 +20,7 @@ return {
     luasnip.config.setup {}
 
     local cmp_opts = {
+      experimental = { ghost_text = true },
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
@@ -62,6 +64,7 @@ return {
       sources = {
         { name = 'luasnip' },
         { name = 'nvim_lsp' },
+        { name = 'async_path' },
       },
     }
 
