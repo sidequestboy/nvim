@@ -1,10 +1,11 @@
 return {
   'ThePrimeagen/harpoon',
+  enabled = false,
   dev = true,
   dir = '~/my/code/nvim-plugins/harpoon',
   opts = {
     save_on_toggle = true,
-    tabline = true,
+    tabline = false,
   },
   config = function(_, opts)
     require('harpoon').setup(opts)
