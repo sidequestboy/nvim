@@ -16,7 +16,12 @@ return {
   config = function()
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
+    -- this loads friendly-snippets
     require('luasnip.loaders.from_vscode').lazy_load()
+    -- this loads my custom snippets
+    require('luasnip.loaders.from_vscode').lazy_load {
+      paths = { './snippets' },
+    }
     luasnip.config.setup {}
 
     local cmp_opts = {
