@@ -40,27 +40,38 @@ return {
           end
         end, { 'i', 's' }),
         ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete {},
+        ['<C-d>'] = cmp.mapping.scroll_docs(4),
+        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<CR>'] = cmp.mapping.confirm {
           behavior = cmp.ConfirmBehavior.Replace,
           select = false,
         },
+        ['<C-e>'] = cmp.mapping.confirm {
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = true,
+        },
+        ['<C-c>'] = cmp.mapping.abort(),
         ['<Tab>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          elseif luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
+          if luasnip.locally_jumpable(1) then
+            luasnip.jump(1)
+          elseif luasnip.expandable() then
+            luasnip.expand()
+          elseif cmp.visible() then
+            -- cmp.select_next_item()
+            cmp.confirm {
+              behavior = cmp.ConfirmBehavior.Replace,
+              select = true,
+            }
           else
             fallback()
           end
         end, { 'i', 's' }),
         ['<S-Tab>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.locally_jumpable(-1) then
+          if luasnip.locally_jumpable(-1) then
             luasnip.jump(-1)
+          elseif cmp.visible() then
+            -- cmp.select_prev_item()
+            cmp.abort()
           else
             fallback()
           end
