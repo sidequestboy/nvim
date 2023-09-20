@@ -17,17 +17,21 @@ return {
       end,
     },
   },
-  opts = {
-    defaults = {
-      mappings = {
-        i = {
-          ['<C-u>'] = false,
-          ['<C-d>'] = false,
+  config = function()
+    local opts = {
+      defaults = {
+        mappings = {
+          i = {
+            ['<C-u>'] = false,
+            ['<C-d>'] = false,
+          },
+          n = {
+            ['<C-c>'] = require('telescope.actions').close,
+            ['q'] = require('telescope.actions').close,
+          },
         },
       },
-    },
-  },
-  config = function(_, opts)
+    }
     require('telescope').setup(opts)
 
     -- Enable telescope fzf native, if installed
