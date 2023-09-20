@@ -1,5 +1,5 @@
-vim.g.mapleader = ','
-vim.g.maplocalleader = ','
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Install package manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
