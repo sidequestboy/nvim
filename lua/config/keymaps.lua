@@ -13,3 +13,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set({ 'n' }, '<leader>x', function()
   vim.cmd 'bd!'
 end, { desc = '[X] delete buffer' })
+vim.keymap.set('n', 'W', function()
+  vim.cmd 'write'
+end, { desc = '[W]rite buffer' })
