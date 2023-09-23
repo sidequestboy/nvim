@@ -1,5 +1,6 @@
 return {
 
+  { 'digitaltoad/vim-pug' },
   {
     'ixru/nvim-markdown',
   },
