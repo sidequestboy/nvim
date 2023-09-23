@@ -54,3 +54,11 @@ vim.o.smartindent = true
 
 -- so <C-a> doesn't treat "-n" as negative
 vim.opt.nrformats:append { 'unsigned' }
+
+-- set invisible chars
+vim.o.list = true
+vim.o.listchars = 'tab:>-'
+
+-- don't load netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
