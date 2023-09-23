@@ -62,13 +62,3 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
   end,
   group = insert_group,
 })
-
-local javascript_tab_group = vim.api.nvim_create_augroup('TabGroup', { clear = true })
-vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
-  callback = function()
-    -- This is to re-indent when typing "case", and backspacing, and parens
-    vim.opt_local.indentkeys:append { '<e>', '<BS>', '(', ')' }
-  end,
-  pattern = { '*.js', '*.jsx', '*.ts', '*.tsx' },
-  group = javascript_tab_group,
-})
