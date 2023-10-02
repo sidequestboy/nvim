@@ -62,3 +62,12 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
   end,
   group = insert_group,
 })
+
+local save_normalmode_group = vim.api.nvim_create_augroup('SaveNormalMode', { clear = true })
+vim.api.nvim_create_autocmd({ 'InsertLeave', 'TextChanged' }, {
+  callback = function()
+    vim.cmd 'write'
+  end,
+  pattern = { '*.md', '*.markdown' },
+  group = save_normalmode_group,
+})
