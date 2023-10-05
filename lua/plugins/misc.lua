@@ -3,6 +3,9 @@ return {
   { 'digitaltoad/vim-pug' },
   {
     'ixru/nvim-markdown',
+    config = function()
+      vim.cmd 'map <Plug> <Plug>Markdown_Fold'
+    end,
   },
   {
     'iamcco/markdown-preview.nvim',
