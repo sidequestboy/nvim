@@ -13,7 +13,7 @@ return {
   },
   config = function(_, opts)
     require('nvim-tree').setup(opts)
-    vim.keymap.set({ 'n', 'i', 'v', 'c' }, '<C-f>', function()
+    vim.keymap.set({ 'n', 'i', 'v' }, '<C-f>', function()
       require('nvim-tree.api').tree.toggle()
     end)
   end,
