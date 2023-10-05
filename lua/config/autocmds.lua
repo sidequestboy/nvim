@@ -71,3 +71,14 @@ vim.api.nvim_create_autocmd({ 'InsertLeave', 'TextChanged' }, {
   pattern = { '*.md', '*.markdown' },
   group = save_normalmode_group,
 })
+
+
+local focus_group = vim.api.nvim_create_augroup('SaveFocusGroup', { clear = true })
+vim.api.nvim_create_autocmd({ 'FocusLost' }, {
+  callback = function()
+    vim.cmd 'stopinsert'
+    vim.cmd 'write'
+  end,
+  pattern = { '*' },
+  group = focus_group,
+})
