@@ -72,12 +72,13 @@ vim.api.nvim_create_autocmd({ 'InsertLeave', 'TextChanged' }, {
   group = save_normalmode_group,
 })
 
-
 local focus_group = vim.api.nvim_create_augroup('SaveFocusGroup', { clear = true })
-vim.api.nvim_create_autocmd({ 'FocusLost' }, {
+vim.api.nvim_create_autocmd({ 'FocusLost', 'BufLeave' }, {
   callback = function()
     vim.cmd 'stopinsert'
-    vim.cmd 'write'
+    if not vim.bo[0].readonly then
+      vim.cmd 'write'
+    end
   end,
   pattern = { '*' },
   group = focus_group,
