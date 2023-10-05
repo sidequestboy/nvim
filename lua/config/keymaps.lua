@@ -5,6 +5,11 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- make a{",',`} work as expected
+vim.keymap.set({ 'n', 'v', 'o', 'x' }, 'a"', '2i"')
+vim.keymap.set({ 'n', 'v', 'o', 'x' }, "a'", "2i'")
+vim.keymap.set({ 'n', 'v', 'o', 'x' }, 'a`', '2i`')
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
