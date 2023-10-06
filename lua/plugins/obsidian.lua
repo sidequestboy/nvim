@@ -3,7 +3,6 @@ return {
   {
     'epwalsh/obsidian.nvim',
     lazy = true,
-    tag = 'v1.13.0',
     event = {
       'BufReadPre ' .. vault_path .. '/**.md',
       'BufNewFile ' .. vault_path .. '/**.md',
@@ -31,10 +30,7 @@ return {
     end,
   },
   {
-    'oflisback/obsidian-sync.nvim',
-    dev = true,
-    dir = '~/my/code/nvim-plugins/obsidian-sync.nvim',
-    branch = 'topic/apply-uriencode',
+    'oflisback/obsidian-bridge.nvim',
     opts = {
       vault_path = vault_path,
       obsidian_server_address = 'http://localhost:27123',
