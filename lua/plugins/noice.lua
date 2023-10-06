@@ -22,6 +22,13 @@ return {
       lsp_doc_border = false, -- add a border to hover docs and signature help
     },
     throttle = 1000 / 120,
+    -- workaround for LSP hover error messages
+    routes = {
+      {
+        filter = { find = 'No information available' },
+        opts = { stop = true },
+      },
+    },
   },
   dependencies = {
     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries

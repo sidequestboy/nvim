@@ -62,6 +62,7 @@ return {
       -- rust_analyzer = {},
       tsserver = {},
       eslint = {},
+      tailwindcss = {},
       -- html = { filetypes = { 'html', 'twig', 'hbs'} },
       -- emmet_ls = {
       --   filetypes = { 'css', 'html', 'javascript', 'javascriptreact', 'less', 'sass', 'scss', 'svelte', 'pug', 'typescriptreact', 'vue' },
@@ -100,6 +101,10 @@ return {
           on_attach = on_attach,
           settings = servers[server_name],
           filetypes = (servers[server_name] or {}).filetypes,
+          -- doesn't work WHY??
+          -- handlers = {
+          --   ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { silent = true, border = "single", title = server_name }),
+          -- },
         }
       end,
     }
