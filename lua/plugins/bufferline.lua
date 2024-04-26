@@ -1,7 +1,7 @@
 return {
   'akinsho/bufferline.nvim',
   dev = true,
-  dir = '~/my/code/nvim-plugins/bufferline.nvim',
+  dir = '~/my/code/others/nvim-plugins/bufferline.nvim',
   enabled = true,
   version = '*',
   dependencies = { 'nvim-tree/nvim-web-devicons' },

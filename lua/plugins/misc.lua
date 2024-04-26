@@ -72,7 +72,7 @@ return {
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
-    dir = '~/my/code/nvim-plugins/lualine.nvim',
+    dir = '~/my/code/others/nvim-plugins/lualine.nvim',
     dev = true,
     priority = 999,
     dependencies = { 'folke/noice.nvim' },

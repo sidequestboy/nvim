@@ -2,7 +2,7 @@ return {
   'ThePrimeagen/harpoon',
   enabled = false,
   dev = true,
-  dir = '~/my/code/nvim-plugins/harpoon',
+  dir = '~/my/code/others/nvim-plugins/harpoon',
   opts = {
     save_on_toggle = true,
     tabline = false,

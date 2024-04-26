@@ -1,6 +1,6 @@
 return {
   -- "echasnovski/mini.surround",
-  dir = '~/my/code/nvim-plugins/mini.surround',
+  dir = '~/my/code/others/nvim-plugins/mini.surround',
   dev = true,
   version = '*',
   opts = function(_, opts)
