@@ -1,6 +1,11 @@
 return {
   'NvChad/nvim-colorizer.lua',
   opts = {
-    css = true,
+    user_default_options = {
+      mode = 'background',
+      css = true,
+      sass = { enable = true },
+      tailwind = true,
+    },
   },
 }

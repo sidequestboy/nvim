@@ -34,6 +34,7 @@ vim.o.timeoutlen = 300
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
+vim.o.guifont = 'Fira Code Mono:h24,Symbols Nerd Font Mono:h24'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 

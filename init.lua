@@ -28,7 +28,7 @@ require('lazy').setup('plugins', {
     colorscheme = { 'catppuccin' },
   },
   dev = { path = '~/my/code/others/nvim-plugins' },
-  checker = { enabled = true },
+  -- checker = { enabled = true },
   performance = {
     rtp = {
       -- disable some rtp plugins

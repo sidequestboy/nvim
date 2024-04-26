@@ -12,9 +12,18 @@ return {
     -- Adds a number of user-friendly snippets
     'rafamadriz/friendly-snippets',
     'FelipeLema/cmp-async-path',
+    {
+      'roobert/tailwindcss-colorizer-cmp.nvim',
+      config = function()
+        require('tailwindcss-colorizer-cmp').setup {
+          color_square_width = 2,
+        }
+      end,
+    },
   },
   config = function()
     local cmp = require 'cmp'
+
     local luasnip = require 'luasnip'
     -- this loads friendly-snippets
     require('luasnip.loaders.from_vscode').lazy_load()
@@ -81,6 +90,9 @@ return {
         { name = 'luasnip' },
         { name = 'nvim_lsp' },
         { name = 'async_path' },
+      },
+      formatting = {
+        format = require('tailwindcss-colorizer-cmp').formatter,
       },
     }
 

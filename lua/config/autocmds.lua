@@ -85,3 +85,18 @@ vim.api.nvim_create_autocmd({ 'FocusLost', 'BufLeave' }, {
   pattern = { '*' },
   group = focus_group,
 })
+
+local classname_group = vim.api.nvim_create_augroup('ClassNameGroup', { clear = true })
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+  callback = function()
+    vim.keymap.set({ 'n' }, '<leader>C', 'vi"A ', {
+      desc = 'append to [C]lass list',
+    })
+    vim.keymap.set({ 'n' }, '<leader>`', '<leader>zr"`va`<leader>za}', {
+      remap = true,
+      desc = 'replace "" with {``}',
+    })
+  end,
+  pattern = { '*.html', '*.jsx', '*.tsx', '*.js', '*.ts' },
+  group = classname_group,
+})

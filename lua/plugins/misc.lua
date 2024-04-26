@@ -1,5 +1,4 @@
 return {
-
   { 'digitaltoad/vim-pug' },
   {
     'lewis6991/satellite.nvim',
