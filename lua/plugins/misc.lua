@@ -1,12 +1,6 @@
 return {
   { 'digitaltoad/vim-pug' },
   {
-    'lewis6991/satellite.nvim',
-    config = function(_, opts)
-      require('satellite').setup(opts)
-    end,
-  },
-  {
     'ixru/nvim-markdown',
     config = function()
       vim.cmd 'map <Plug> <Plug>Markdown_Fold'
