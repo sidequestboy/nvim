@@ -42,6 +42,23 @@ vim.api.nvim_create_autocmd({ 'BufRead' }, {
   group = filetype_group,
 })
 
+-- Squarespace templates:
+vim.api.nvim_create_autocmd({ 'BufRead' }, {
+  callback = function()
+    vim.cmd 'set filetype=html'
+  end,
+  pattern = { '*pages/*.page', '*site.region', '*collections/*.item', '*collections/*.list', '*blocks/*.block' },
+  group = filetype_group,
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead' }, {
+  callback = function()
+    vim.cmd 'set filetype=json'
+  end,
+  pattern = { '*pages/*.page.conf', '*collections/*.conf', '*template.conf' },
+  group = filetype_group,
+})
+
 local auto_normal_group = vim.api.nvim_create_augroup('NormalGroup', { clear = true })
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
   callback = function()
