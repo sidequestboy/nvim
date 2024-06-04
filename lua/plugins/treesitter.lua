@@ -40,7 +40,7 @@ return {
     },
 
     context_commentstring = {
-      enable = true,
+      enable = false,
       enable_autocmd = false,
     },
 
